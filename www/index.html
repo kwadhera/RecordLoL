@@ -97,9 +97,21 @@
           <button class="button button-full button-positive" id="but">Record</button>
 
 <script>
+
 $(document).ready(function(){
+var array;
+var z = 0;
 
-
+var NA = "na.";
+var KR = "www.";
+var EUW = "euw.";
+var LAS = "las.";
+var EUNE = "eune.";
+var BR = "br.";
+var OCE = "oce.";
+var RU = "ru.";
+var TR = "tr.";
+var LAN = "lan.";
 
 
 if(typeof(Storage) !== "undefined") {
@@ -114,7 +126,8 @@ $("#name5").val(window.localStorage.getItem("n5"));
 
 //while(true){
 //var go = $("#{{Record").val();}
-$( "#but" ).click(function() {
+$( "#but" ).click(function Recorder() {
+  z=0;//reset loop
 //if(toggled){
     //alert('lol');
 
@@ -125,25 +138,10 @@ var name3 = $("#name3").val();
 var name4 = $("#name4").val();
 var name5 = $("#name5").val();
 
-var NA = "na.";
-var KR = "www.";
-var EUW = "euw.";
-var LAS = "las.";
-var EUNE = "eune.";
-var BR = "br.";
-var OCE = "oce.";
-var RU = "ru.";
-var TR = "tr.";
-var LAN = "lan.";
 
 
-var aname1 = $("#name1").val().split(':');
-var aname2 = $("#name2").val().split(':');
-var aname3 = $("#name3").val().split(':');
-var aname4 = $("#name4").val().split(':');
-var aname5 = $("#name5").val().split(':');
-//arrays. aname1[0] contains summonername aname1[1] contains region
-var array = [aname1,aname2,aname3,aname4,aname5];
+
+
 if(typeof(Storage) !== "undefined") {
 window.localStorage.setItem("n1", name1);
 window.localStorage.setItem("n2", name2);
@@ -156,10 +154,51 @@ window.localStorage.setItem("n5", name5);
 } else {
     // No HTML5 Storage Support
 }
-var z = 0;
+
 while(z<5){
+
+looper();
+//d=1;
+
+//} end of d loop
+
+}//end of the while loops through 5 names
+
+
+
+
+
+
+//$.ajax({
+  // type: "GET",
+   //url: "http://na.op.gg/summoner/ajax/requestRecording.json/gameId=" + res
+//});
+//$.get( "http://na.op.gg/summoner/ajax/requestRecording.json/gameId=" + res);
+
+//here is where the inside of the click is
+
+
+}); //this was only removed because onlick no more use
+
+
+
+function looper(){
+
+var aname1 = $("#name1").val().split(':');
+var aname2 = $("#name2").val().split(':');
+var aname3 = $("#name3").val().split(':');
+var aname4 = $("#name4").val().split(':');
+var aname5 = $("#name5").val().split(':');
+//arrays. aname1[0] contains summonername aname1[1] contains region
+array = [aname1,aname2,aname3,aname4,aname5];
+
+
+
+
+//if(d === 1){
 var un = array[z];
 z++;
+d = 0;
 var loc;
 
 //getting the correct server
@@ -228,23 +267,11 @@ $.ajax({
 });
 
 
-}//end of the while loop through 5 names
+}//end of looper
 
 
 
 
-
-
-//$.ajax({
-  // type: "GET",
-   //url: "http://na.op.gg/summoner/ajax/requestRecording.json/gameId=" + res
-//});
-//$.get( "http://na.op.gg/summoner/ajax/requestRecording.json/gameId=" + res);
-
-//here is where the inside of the click is
-
-
-}); //this was only removed because onlick no more use
 //}  //for the toggling thingy that sucks
 
 /**
