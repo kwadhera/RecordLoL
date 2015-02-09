@@ -32,13 +32,13 @@ $scope.$watch('Record', function(newValue, oldValue) {
 
     }]);
 
-
+/**
 angular.module('RecordLoL', ['ionic'])
     .controller('fake', ['$scope', function($scope) {
 //things can go here
     }]);
-
-
+**/
+/**
   angular.module('RecordLoL', ['ionic'])
  .config(function ($stateProvider, $urlRouterProvider) {
 
@@ -52,7 +52,7 @@ angular.module('RecordLoL', ['ionic'])
 
             .state('help', {
                 url: '/help',
-                templateUrl: 'templates/help.html',
+                templateUrl: '',
                 controller: 'fake'
             })
 
@@ -61,3 +61,4 @@ angular.module('RecordLoL', ['ionic'])
         $urlRouterProvider.otherwise('/record');
 
     });
+**/

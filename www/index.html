@@ -223,7 +223,6 @@ check();
 }); //this was only removed because onlick no more use
 
 
-
 function looper(){
 
  aname1 = $("#name1").val().split(':');
@@ -311,9 +310,15 @@ $.ajax({
 
 }//end of looper
 
+$( "#start" ).click(
+function pop(){alert("Enter up to five Summoners and their regions in the format Phreak:NA (Region must be capitalized), and hit the button to start/stop recording.\n\nAccepted Regions:\nNA,KR,EUW,EUNE,OCE,BR,LAS,LAN,RU,TR\n\nYou can view the recordings on a PC by visting OP.GG.");
+});
 
+$( "#help" ).click(
+function pop(){alert("If there is a problem recording please make sure the Summoner Name and Region have been entered in the correct format.\n\nIf everything is correct, there may be issues with OP.GG or Riot.");});
 
-
+$( "#about" ).click(
+function pop(){alert("RecordLoL developed by kwadhera.\n\nRecord function uses OP.GG.");});
 //}  //for the toggling thingy that sucks
 
 /**
@@ -381,16 +386,13 @@ $.ajax({
 
 <ion-content>
             <ion-list>
-               <ion-item nav-clear menu-close href="" class="item item-icon-left" >
+               <ion-item menu-close id="start" class="item item-icon-left" >
                     <i class="icon ion-ios7-flag"></i>Getting Started
                 </ion-item>
-               <ion-item nav-clear menu-close href="#/record" class="item item-icon-left" >
-                    <i class="icon ion-ios7-videocam"></i>Record
-                </ion-item>
-                 <ion-item nav-clear menu-close href="#/help" class="item item-icon-left" >
+                 <ion-item menu-close id="help" class="item item-icon-left" >
                     <i class="icon ion-ios7-help"></i>Help
                 </ion-item>
-                 <ion-item nav-clear menu-close href="#/record/help" class="item item-icon-left" >
+                 <ion-item menu-close id = "about" class="item item-icon-left" >
                     <i class="icon ion-ios7-information"></i>About
                 </ion-item>
             </ion-list>
