@@ -33,3 +33,31 @@ $scope.$watch('Record', function(newValue, oldValue) {
     }]);
 
 
+angular.module('RecordLoL', ['ionic'])
+    .controller('fake', ['$scope', function($scope) {
+//things can go here
+    }]);
+
+
+  angular.module('RecordLoL', ['ionic'])
+ .config(function ($stateProvider, $urlRouterProvider) {
+
+        $stateProvider
+
+            .state('index', {
+                url: '/record',
+                templateUrl: 'index.html',
+                controller: 'fake'
+            })
+
+            .state('help', {
+                url: '/help',
+                templateUrl: 'templates/help.html',
+                controller: 'fake'
+            })
+
+
+        // if none of the above states are matched, use this as the fallback
+        $urlRouterProvider.otherwise('/record');
+
+    });
