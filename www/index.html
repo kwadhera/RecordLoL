@@ -125,27 +125,62 @@ var name3 = $("#name3").val();
 var name4 = $("#name4").val();
 var name5 = $("#name5").val();
 
+var NA = "na.";
+var KR = "www.";
+var EUW = "euw.";
+var LAS = "las.";
+var EUNE = "eune.";
+var BR = "br.";
+var OCE = "oce.";
+var RU = "ru.";
+var TR = "tr.";
+var LAN = "lan.";
 
+
+var aname1 = $("#name1").val().split(':');
+var aname2 = $("#name2").val().split(':');
+var aname3 = $("#name3").val().split(':');
+var aname4 = $("#name4").val().split(':');
+var aname5 = $("#name5").val().split(':');
+//arrays. aname1[0] contains summonername aname1[1] contains region
+var array = [aname1,aname2,aname3,aname4,aname5];
 if(typeof(Storage) !== "undefined") {
-window.localStorage.setItem("n1", "#name1".val());
-window.localStorage.setItem("n2", "#name2".val());
-window.localStorage.setItem("n3", "#name3".val());
-window.localStorage.setItem("n4", "#name4".val();
-window.localStorage.setItem("n5", "#name5".val());
-
+window.localStorage.setItem("n1", name1);
+window.localStorage.setItem("n2", name2);
+window.localStorage.setItem("n3", name3);
+window.localStorage.setItem("n4", name4);
+window.localStorage.setItem("n5", name5);
+//storing in format name:region
 
 
 } else {
     // No HTML5 Storage Support
 }
+var z = 0;
+while(z<5){
+var un = array[z];
+z++;
+var loc;
 
+//getting the correct server
+
+if(un[1] == "NA"){loc = NA;}
+if(un[1] == "KR"){loc = KR;}
+if(un[1] == "EUW"){loc = EUW;}
+if(un[1] == "OCE"){loc = OCE;}
+if(un[1] == "LAS"){loc = LAS;}
+if(un[1] == "RU"){loc = RU;}
+if(un[1] == "EUNE"){loc = EUNE;}
+if(un[1] == "BR"){loc = BR;}
+if(un[1] == "LAN"){loc = LAN;}
+if(un[1] == "TR"){loc = TR;}
 
 
 $.ajax({
    type: "POST",
-   url: "http://na.op.gg/summoner/ajax/spectator/",
+   url: "http://" + loc + "op.gg/summoner/ajax/spectator/",
    dataType: "text",
-   data: {userName: name1,force:'true'},
+   data: {userName: (un[0]),force:'true'},
    success: function(data) {
     //var obj = $.parseJSON(data);
 //alert(data);
@@ -193,7 +228,7 @@ $.ajax({
 });
 
 
-
+}//end of the while loop through 5 names
 
 
 
