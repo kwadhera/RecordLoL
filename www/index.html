@@ -200,7 +200,7 @@ console.log(res);
 
 $.ajax({
 
-    url : 'http://na.op.gg/summoner/ajax/requestRecording.json/gameId=' + res,
+    url : 'http://'+ loc +'op.gg/summoner/ajax/requestRecording.json/gameId=' + res,
     type : 'GET',
     dataType:'json',
     success : function(data) {              
