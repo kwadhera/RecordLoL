@@ -108,6 +108,13 @@
 $(document).ready(function(){
 var array;
 var z = 0;
+var globalon = 0;
+
+var aname1;
+var aname2;
+var aname3;
+var aname4;
+var aname5;
 
 var NA = "na.";
 var KR = "www.";
@@ -136,7 +143,10 @@ $("#name5").val(window.localStorage.getItem("n5"));
 var ready = true;
 $( "#but" ).click(function Recorder() {
   if(ready){
+    globalon = 1;
             $('#onbar').slideToggle();
+
+            function doit(){
   z=0;//reset loop
 //if(toggled){
     //alert('lol');
@@ -187,8 +197,25 @@ looper();
 
 //here is where the inside of the click is
 
+}//end of function doit
+doit();
+
+
+function check(){
+    if(globalon === 1){
+        doit();
+        console.log("do it fired");
+        setTimeout(check, 480000);
+    }
+    else {
+        setTimeout(check, 480000); // check in 10
+    }
+}
+check();
+
 }//end of if
   else{            $('#onbar').slideToggle();
+  globalon = 0;
 }
   ready = (!ready);
 
@@ -199,11 +226,11 @@ looper();
 
 function looper(){
 
-var aname1 = $("#name1").val().split(':');
-var aname2 = $("#name2").val().split(':');
-var aname3 = $("#name3").val().split(':');
-var aname4 = $("#name4").val().split(':');
-var aname5 = $("#name5").val().split(':');
+ aname1 = $("#name1").val().split(':');
+ aname2 = $("#name2").val().split(':');
+ aname3 = $("#name3").val().split(':');
+ aname4 = $("#name4").val().split(':');
+ aname5 = $("#name5").val().split(':');
 //arrays. aname1[0] contains summonername aname1[1] contains region
 array = [aname1,aname2,aname3,aname4,aname5];
 
@@ -243,14 +270,14 @@ $.ajax({
 
 var where = data.indexOf("requestRecording");
 var get = data.indexOf("gameId=");
-if(!(where > -1)){console.log("Game not currently recordable.")}
+//if(!(where > -1)){console.log("Game not currently recordable.")}
 //alert(data.getElementsByClassName(kajax opButton mini red));
 //console.log($(data).find('requestRecording'));
 //value = data.find('a.kajax.op.Button.mini.red');
 //   console.log(value);
-console.log(get);
+//console.log(get);
 var res = data.substring(get+7, get+17);
-console.log(res);
+//console.log(res);
 
 $.ajax({
 
@@ -258,11 +285,11 @@ $.ajax({
     type : 'GET',
     dataType:'json',
     success : function(data) {              
-        console.log("Success");
+        //console.log("Success");
     },
     error : function(request,error)
     {
-        console.log(("Request: "+JSON.stringify(request)));
+        //console.log(("Request: "+JSON.stringify(request)));
     }
 });
 
@@ -277,7 +304,7 @@ $.ajax({
 
    },
    error: function(e) {
-     console.log('Error: ' + e.message);
+     //console.log('Error: ' + e.message);
    }
 });
 
