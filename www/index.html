@@ -8,17 +8,11 @@
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
-
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
-    <!-- your app's js -->
     <script src="js/app.js"></script>
   </head>
   <body ng-app="RecordLoL">
@@ -91,17 +85,6 @@
 </div>
 
 
-
-
-   <!--ion-toggle toggle-class="toggle-balanced"
-                    ng-model="Record" ng-controller="tog">
-                   <!-- ng-true-value="NotRecording"
-                    ng-false-value="Recording">
-           Record
-        </ion-toggle-->
-
-        
-
           <button class="button button-full button-positive" id="but">Toggle Recording</button>
 
 <script>
@@ -159,9 +142,6 @@ var name4 = $("#name4").val();
 var name5 = $("#name5").val();
 
 
-
-
-
 if(typeof(Storage) !== "undefined") {
 window.localStorage.setItem("n1", name1);
 window.localStorage.setItem("n2", name2);
@@ -176,31 +156,13 @@ window.localStorage.setItem("n5", name5);
 }
 
 while(z<5){
-
 looper();
-//d=1;
-
-//} end of d loop
 
 }//end of the while loops through 5 names
 
 
-
-
-
-
-//$.ajax({
-  // type: "GET",
-   //url: "http://na.op.gg/summoner/ajax/requestRecording.json/gameId=" + res
-//});
-//$.get( "http://na.op.gg/summoner/ajax/requestRecording.json/gameId=" + res);
-
-//here is where the inside of the click is
-
 }//end of function doit
 doit();
-
-
 function check(){
     if(globalon === 1){
         doit();
@@ -221,7 +183,6 @@ check();
 
 
 }); //this was only removed because onlick no more use
-
 
 function looper(){
 
@@ -255,7 +216,6 @@ if(un[1] == "BR"){loc = BR;}
 if(un[1] == "LAN"){loc = LAN;}
 if(un[1] == "TR"){loc = TR;}
 
-
 $.ajax({
    type: "POST",
    url: "http://" + loc + "op.gg/summoner/ajax/spectator/",
@@ -265,7 +225,7 @@ $.ajax({
     //var obj = $.parseJSON(data);
 //alert(data);
 //$(data).filter('#').doStuff();
-            //alert("GREAT SUCCESS!!!111!!");
+      //alert("GREAT SUCCESS!!!111!!");
 
 var where = data.indexOf("requestRecording");
 var get = data.indexOf("gameId=");
@@ -292,15 +252,6 @@ $.ajax({
     }
 });
 
-
-
-
-//console.log($( "div.RequestRecording tip").html());
-
-
-
-
-
    },
    error: function(e) {
      //console.log('Error: ' + e.message);
@@ -319,41 +270,12 @@ function pop(){alert("If there is a problem recording please make sure the Summo
 
 $( "#about" ).click(
 function pop(){alert("RecordLoL developed by kwadhera.\n\nRecord function uses OP.GG.");});
-//}  //for the toggling thingy that sucks
-
-/**
-$( "#but" ).click(function() {
-$.ajax({
-
-    url : 'http://na.op.gg/summoner/ajax/requestRecording.json/gameId=' + res,
-    type : 'GET',
-    dataType:'json',
-    success : function(data) {              
-        console.log("Success");
-    },
-    error : function(request,error)
-    {
-        console.log(("Request: "+JSON.stringify(request)));
-    }
-});
-
-});
-**/
-
-
+//Fix in later build make full blown pages
   //alert( "Handler for .click() called." );
 });
 
 
-
-
-
 </script>
-
-
-
-
-
 
         </div>
 
@@ -365,11 +287,8 @@ $.ajax({
 
 
 
-    <!-- our list and list items -->
+    <!-- list & items for later builds-->
     <ion-list>
-      <!--<ion-item ng-repeat="task in tasks">
-
-      </ion-item> -->
     </ion-list>
   </ion-content>
 </ion-side-menu-content>
